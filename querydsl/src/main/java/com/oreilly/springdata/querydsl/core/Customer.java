@@ -29,11 +29,12 @@ import com.mysema.query.annotations.QueryEntity;
 @QueryEntity
 public class Customer extends AbstractEntity {
 
-	private String firstname, lastname;
+	private String firstname;
+	private String lastname;
 
 	private EmailAddress emailAddress;
 
-	private Set<Address> addresses = new HashSet<Address>();
+	private Set<Address> addresses = new HashSet<>();
 
 	/**
 	 * @param firstname

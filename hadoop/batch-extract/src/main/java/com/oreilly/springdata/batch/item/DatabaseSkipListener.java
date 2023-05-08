@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class DatabaseSkipListener extends SkipListenerSupport  {
 
-	private JdbcTemplate jdbcTemplate;
+	private final JdbcTemplate jdbcTemplate;
 	private MultiResourceItemReader multiResourceItemReader;
 	
 	public DatabaseSkipListener(DataSource datasource) {

@@ -13,10 +13,10 @@ import org.springframework.util.Assert;
 
 public class HdfsTextFileWriter extends AbstractHdfsWriter implements HdfsWriter {
 
-	private FileSystem fileSystem;
+	private final FileSystem fileSystem;
 	private FSDataOutputStream fsDataOutputStream;
 
-	private volatile String charset = "UTF-8";
+	private final volatile String charset = "UTF-8";
 	
 	public HdfsTextFileWriter(FileSystem fileSystem) {
 		Assert.notNull(fileSystem, "Hadoop FileSystem must not be null.");

@@ -21,14 +21,13 @@ import org.springframework.util.Assert;
 public class HdfsTextItemWriter<T> extends AbstractHdfsItemWriter<T> implements InitializingBean {
 
 	private static final String DEFAULT_LINE_SEPARATOR = System.getProperty("line.separator");
-	 
-	private FileSystem fileSystem;
+
+	private final FileSystem fileSystem;
 	private FSDataOutputStream fsDataOutputStream;
     private LineAggregator<T> lineAggregator;
-    
-    private String lineSeparator = DEFAULT_LINE_SEPARATOR;
+	private final String lineSeparator = DEFAULT_LINE_SEPARATOR;
 
-	private volatile String charset = "UTF-8";
+	private final volatile String charset = "UTF-8";
 	
 	public HdfsTextItemWriter(FileSystem fileSystem) {
 		Assert.notNull(fileSystem, "Hadoop FileSystem must not be null.");

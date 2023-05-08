@@ -33,7 +33,7 @@ public class Order extends AbstractEntity {
 	private Customer customer;
 	private Address billingAddress;
 	private Address shippingAddress;
-	private Set<LineItem> lineItems = new HashSet<LineItem>();
+	private Set<LineItem> lineItems = new HashSet<>();
 
 	public Order(Customer customer) {
 		this.customer = customer;

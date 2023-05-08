@@ -12,7 +12,7 @@ import org.springframework.util.Assert;
 
 public class AnalysisService implements ResourceLoaderAware {
 
-	private HiveOperations hiveOperations;
+	private final HiveOperations hiveOperations;
 	private String scriptResource;
 	private String hiveContribJar;
 	private String localInPath;

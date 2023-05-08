@@ -39,7 +39,7 @@ public class Order extends AbstractDocument {
 	private Customer customer;
 	private Address billingAddress;
 	private Address shippingAddress;
-	private Set<LineItem> lineItems = new HashSet<LineItem>();
+	private Set<LineItem> lineItems = new HashSet<>();
 
 	/**
 	 * Creates a new {@link Order} for the given {@link Customer}.

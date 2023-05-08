@@ -42,7 +42,7 @@ public class Product extends AbstractEntity {
 	private BigDecimal price;
 
 	@ElementCollection
-	private Map<String, String> attributes = new HashMap<String, String>();
+	private Map<String, String> attributes = new HashMap<>();
 
 	/**
 	 * Creates a new {@link Product} with the given name.

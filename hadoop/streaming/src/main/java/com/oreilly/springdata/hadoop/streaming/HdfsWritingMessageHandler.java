@@ -17,8 +17,8 @@ public class HdfsWritingMessageHandler extends AbstractMessageHandler implements
 	private volatile boolean active;
 		
 	private HdfsWriter hdfsWriter;
-	
-	private HdfsWriterFactory hdfsWriterFactory;
+
+	private final HdfsWriterFactory hdfsWriterFactory;
 	
 	public HdfsWritingMessageHandler(HdfsWriterFactory hdfsWriterFactory) {
 		Assert.notNull(hdfsWriterFactory,

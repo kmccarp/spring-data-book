@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 
 public class MongoItemWriter implements ItemWriter<Object> , InitializingBean {
 
-	private MongoOperations mongoOperations;
+	private final MongoOperations mongoOperations;
 	
 	private String collectionName = "/data";
 	

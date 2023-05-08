@@ -34,7 +34,10 @@ public class ProductUnitTest {
 
 	private static final QProduct $ = QProduct.product;
 
-	Product macBook, iPad, iPod, turntable;
+	Product macBook;
+	Product iPad;
+	Product iPod;
+	Product turntable;
 
 	List<Product> products;
 
