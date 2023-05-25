@@ -42,7 +42,7 @@ public class FsShellWritingMessageHandler extends
 
 	private volatile boolean deleteSourceFiles;
 
-	private volatile boolean expectReply = false;
+	private volatile boolean expectReply;
 
 	private Configuration configuration;
 

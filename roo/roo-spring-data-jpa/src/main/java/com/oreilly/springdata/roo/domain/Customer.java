@@ -25,5 +25,5 @@ public class Customer {
     private EmailAddress emailAddress;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Address> addresses = new HashSet<Address>();
+    private Set<Address> addresses = new HashSet<>();
 }

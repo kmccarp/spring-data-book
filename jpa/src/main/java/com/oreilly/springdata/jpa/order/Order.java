@@ -53,7 +53,7 @@ public class Order extends AbstractEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "order_id")
-	private Set<LineItem> lineItems = new HashSet<LineItem>();
+	private Set<LineItem> lineItems = new HashSet<>();
 
 	/**
 	 * Creates a new {@link Order} for the given {@link Customer}.

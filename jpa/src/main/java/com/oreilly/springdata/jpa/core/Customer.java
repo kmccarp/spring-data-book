@@ -35,14 +35,15 @@ import org.springframework.util.Assert;
 @Entity
 public class Customer extends AbstractEntity {
 
-	private String firstname, lastname;
+	private String firstname;
+	private String lastname;
 
 	@Column(unique = true)
 	private EmailAddress emailAddress;
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "customer_id")
-	private Set<Address> addresses = new HashSet<Address>();
+	private Set<Address> addresses = new HashSet<>();
 
 	/**
 	 * Creates a new {@link Customer} from the given firstname and lastname.

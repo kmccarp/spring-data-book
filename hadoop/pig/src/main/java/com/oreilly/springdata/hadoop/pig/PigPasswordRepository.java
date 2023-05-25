@@ -9,7 +9,7 @@ import org.springframework.util.Assert;
 
 public class PigPasswordRepository implements PasswordRepository {
 
-	private PigOperations pigOperations;
+	private final PigOperations pigOperations;
 	
 	private String pigScript = "classpath:password-analysis.pig";
 	

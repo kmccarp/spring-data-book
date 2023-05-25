@@ -5,7 +5,7 @@ import org.springframework.util.Assert;
 
 public class HdfsTextFileWriterFactory implements HdfsWriterFactory {
 
-	private FileSystem fileSystem;
+	private final FileSystem fileSystem;
 
 	public static final String DEFAULT_BASE_FILENAME = "data";
 	public static final String DEFAULT_BASE_PATH = "/data/";

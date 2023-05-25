@@ -23,7 +23,9 @@ import com.mysema.query.annotations.QueryEntity;
 @QueryEntity
 public class Address extends AbstractEntity {
 
-	private String street, city, country;
+	private String street;
+	private String city;
+	private String country;
 
 	public Address(String street, String city, String country) {
 

@@ -32,9 +32,10 @@ import org.springframework.util.Assert;
 @Document
 public class Product extends AbstractDocument {
 
-	private String name, description;
+	private String name;
+	private String description;
 	private BigDecimal price;
-	private Map<String, String> attributes = new HashMap<String, String>();
+	private Map<String, String> attributes = new HashMap<>();
 
 	/**
 	 * Creates a new {@link Product} with the given name.

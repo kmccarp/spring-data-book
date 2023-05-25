@@ -32,12 +32,13 @@ import org.springframework.util.Assert;
 @Document
 public class Customer extends AbstractDocument {
 
-	private String firstname, lastname;
+	private String firstname;
+	private String lastname;
 
 	@Field("email")
 	@Indexed(unique = true)
 	private EmailAddress emailAddress;
-	private Set<Address> addresses = new HashSet<Address>();
+	private Set<Address> addresses = new HashSet<>();
 
 	/**
 	 * Creates a new {@link Customer} from the given firstname and lastname.

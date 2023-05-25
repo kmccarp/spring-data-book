@@ -28,9 +28,10 @@ import com.mysema.query.annotations.QueryEntity;
 @QueryEntity
 public class Product extends AbstractEntity {
 
-	private String name, description;
+	private String name;
+	private String description;
 	private BigDecimal price;
-	private Map<String, String> attributes = new HashMap<String, String>();
+	private Map<String, String> attributes = new HashMap<>();
 
 	public Product(String name) {
 		this(name, null);

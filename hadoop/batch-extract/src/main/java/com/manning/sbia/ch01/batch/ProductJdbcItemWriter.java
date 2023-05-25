@@ -21,8 +21,8 @@ public class ProductJdbcItemWriter implements ItemWriter<Product> {
 	private static final String INSERT_PRODUCT = "insert into product (id,name,description,price) values(?,?,?,?)";
 	
 	private static final String UPDATE_PRODUCT = "update product set name=?, description=?, price=? where id = ?";
-	
-	private JdbcTemplate jdbcTemplate;
+
+	private final JdbcTemplate jdbcTemplate;
 	
 	public ProductJdbcItemWriter(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);

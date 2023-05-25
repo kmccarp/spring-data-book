@@ -45,7 +45,7 @@ public class SyslogTransformer {
 		catch (UnsupportedEncodingException e) {
 			payload = new String(message.getPayload());
 		}
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<>();
 		Matcher matcher = pattern.matcher(payload);
 		if (matcher.matches()) {
 			String facilityString = matcher.group(1);
