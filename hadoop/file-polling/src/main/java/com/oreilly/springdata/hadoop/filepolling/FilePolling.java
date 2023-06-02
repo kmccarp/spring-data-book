@@ -13,10 +13,10 @@ public class FilePolling {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/application-context.xml", FilePolling.class);
+	"/META-INF/spring/application-context.xml", FilePolling.class);
 		log.info("File Polling Application Running");
 		context.registerShutdownHook();
 		Scanner scanIn = new Scanner(System.in);
-	    scanIn.nextLine();
+		scanIn.nextLine();
 	}
 }

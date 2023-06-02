@@ -17,11 +17,11 @@ public class Ftp {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/application-context.xml", Ftp.class);
+	"/META-INF/spring/application-context.xml", Ftp.class);
 		log.info("Ftp Application Running");
 		context.registerShutdownHook();
 		Scanner scanIn = new Scanner(System.in);
-	    scanIn.nextLine();
-		
+		scanIn.nextLine();
+
 	}
 }

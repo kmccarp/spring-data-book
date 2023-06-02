@@ -15,15 +15,15 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJpaEntity
 public class Customer {
 
-    @NotNull
-    private String firstName;
+	@NotNull
+	private String firstName;
 
-    @NotNull
-    private String lastName;
+	@NotNull
+	private String lastName;
 
-    @Embedded
-    private EmailAddress emailAddress;
+	@Embedded
+	private EmailAddress emailAddress;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Address> addresses = new HashSet<Address>();
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Address> addresses = new HashSet<Address>();
 }

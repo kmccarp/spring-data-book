@@ -48,7 +48,7 @@ public class UserUtils implements InitializingBean {
 
 		HTableDescriptor tableDescriptor = new HTableDescriptor(tableName);
 		HColumnDescriptor columnDescriptor = new HColumnDescriptor(
-				UserRepository.CF_INFO);
+	UserRepository.CF_INFO);
 		tableDescriptor.addFamily(columnDescriptor);
 
 		admin.createTable(tableDescriptor);
@@ -57,8 +57,8 @@ public class UserUtils implements InitializingBean {
 
 	public void addUsers() {
 		for (int i = 0; i < 10; i++) {
-			userRepository.save("user" + i,"user" + i + "@yahoo.com", "password" + i);
-		}		
+			userRepository.save("user" + i, "user" + i + "@yahoo.com", "password" + i);
+		}
 	}
 
 	@Override
@@ -67,4 +67,4 @@ public class UserUtils implements InitializingBean {
 	}
 
 }
-	
+

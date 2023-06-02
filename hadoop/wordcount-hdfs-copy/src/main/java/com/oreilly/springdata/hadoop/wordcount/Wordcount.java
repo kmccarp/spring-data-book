@@ -26,7 +26,7 @@ public class Wordcount {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/application-context.xml", Wordcount.class);
+	"/META-INF/spring/application-context.xml", Wordcount.class);
 		log.info("Wordcount with HDFS copy Application Running");
 		context.registerShutdownHook();
 	}

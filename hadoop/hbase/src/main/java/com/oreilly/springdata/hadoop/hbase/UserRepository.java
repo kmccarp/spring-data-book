@@ -31,16 +31,16 @@ public class UserRepository {
 		return hbaseTemplate.find(tableName, "cfInfo", new RowMapper<User>() {
 			@Override
 			public User mapRow(Result result, int rowNum) throws Exception {
-				return new User(Bytes.toString(result.getValue(CF_INFO, qUser)), 
-							    Bytes.toString(result.getValue(CF_INFO, qEmail)),
-							    Bytes.toString(result.getValue(CF_INFO, qPassword)));
+				return new User(Bytes.toString(result.getValue(CF_INFO, qUser)),
+			Bytes.toString(result.getValue(CF_INFO, qEmail)),
+			Bytes.toString(result.getValue(CF_INFO, qPassword)));
 			}
 		});
 
 	}
 
 	public User save(final String userName, final String email,
-			final String password) {
+final String password) {
 		return hbaseTemplate.execute(tableName, new TableCallback<User>() {
 			public User doInTable(HTableInterface table) throws Throwable {
 				User user = new User(userName, email, password);
@@ -50,7 +50,7 @@ public class UserRepository {
 				p.add(CF_INFO, qPassword, Bytes.toBytes(user.getPassword()));
 				table.put(p);
 				return user;
-				
+
 			}
 		});
 	}

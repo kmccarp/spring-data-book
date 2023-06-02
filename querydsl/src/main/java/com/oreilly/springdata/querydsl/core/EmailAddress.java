@@ -45,7 +45,7 @@ public class EmailAddress {
 
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

@@ -41,7 +41,7 @@ public class AbstractEntity {
 		return id;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -61,7 +61,7 @@ public class AbstractEntity {
 		return this.id.equals(that.getId());
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */

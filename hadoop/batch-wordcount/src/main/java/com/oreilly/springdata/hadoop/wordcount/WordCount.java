@@ -25,7 +25,7 @@ public class WordCount {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("classpath:/META-INF/spring/*-context.xml");
-				//new ClassPathXmlApplicationContext("classpath*:/META-INF/spring/*-context.xml", WordCount.class);
+		//new ClassPathXmlApplicationContext("classpath*:/META-INF/spring/*-context.xml", WordCount.class);
 		log.info("Batch WordCount Application Running");
 		context.registerShutdownHook();
 
@@ -42,13 +42,12 @@ public class WordCount {
 		 * JobParameter("./data/nietzsche-chapter-1.txt"));
 		 */
 		jobLauncher.run(
-				job,
-				new JobParametersBuilder()
-						.addString("mr.input", "/user/gutenberg/input/word/")
-						.addString("mr.output", "/user/gutenberg/output/word/")
-						.addString("localData",
-								"./data/nietzsche-chapter-1.txt")
-						.addDate("date", new Date()).toJobParameters());
+	job,
+	new JobParametersBuilder()
+.addString("mr.input", "/user/gutenberg/input/word/")
+.addString("mr.output", "/user/gutenberg/output/word/")
+.addString("localData","./data/nietzsche-chapter-1.txt")
+.addDate("date", new Date()).toJobParameters());
 		// startJobs(context);
 
 	}
@@ -61,13 +60,13 @@ public class WordCount {
 			System.out.println("Executing job " + entry.getKey());
 			try {
 				if (launcher.run(entry.getValue(), new JobParameters())
-						.getStatus().equals(BatchStatus.FAILED)) {
+			.getStatus().equals(BatchStatus.FAILED)) {
 					throw new BeanInitializationException(
-							"Failed executing job " + entry.getKey());
+				"Failed executing job " + entry.getKey());
 				}
 			} catch (Exception ex) {
 				throw new BeanInitializationException("Cannot execute job "
-						+ entry.getKey(), ex);
+			+ entry.getKey(), ex);
 			}
 		}
 	}

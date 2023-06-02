@@ -27,17 +27,17 @@ public class HiveApp {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/hive-context.xml", HiveApp.class);
+	"/META-INF/spring/hive-context.xml", HiveApp.class);
 		log.info("Hive Application Running");
-		context.registerShutdownHook();	
-					
+		context.registerShutdownHook();
+
 		HiveTemplate template = context.getBean(HiveTemplate.class);
-		log.info(template.query("show tables;"));	
-		
+		log.info(template.query("show tables;"));
+
 		PasswordRepository repository = context.getBean(HiveTemplatePasswordRepository.class);
 		repository.processPasswordFile("/etc/passwd");
-		log.info("Count of password entries = " + repository.count());		    
-		
+		log.info("Count of password entries = " + repository.count());
+
 
 	}
 }

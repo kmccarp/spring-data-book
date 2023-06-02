@@ -28,10 +28,10 @@ public class Wordcount {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/application-context.xml", Wordcount.class);
+	"/META-INF/spring/application-context.xml", Wordcount.class);
 		log.info("Scheduling Application Running");
 		context.registerShutdownHook();
 		Scanner scanIn = new Scanner(System.in);
-	    scanIn.nextLine();
+		scanIn.nextLine();
 	}
 }

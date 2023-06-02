@@ -57,7 +57,7 @@ public final class EmailAddress {
 		return candidate == null ? false : PATTERN.matcher(candidate).matches();
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -66,7 +66,7 @@ public final class EmailAddress {
 		return value;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -85,7 +85,7 @@ public final class EmailAddress {
 		return this.value.equals(that.value);
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -97,7 +97,7 @@ public final class EmailAddress {
 	@Component
 	static class EmailAddressToStringConverter implements Converter<EmailAddress, String> {
 
-		/* 
+		/*
 		 * (non-Javadoc)
 		 * @see org.springframework.core.convert.converter.Converter#convert(java.lang.Object)
 		 */

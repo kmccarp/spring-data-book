@@ -11,15 +11,15 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJpaEntity
 public class Address {
 
-    @NotNull
-    private String street;
+	@NotNull
+	private String street;
 
-    @NotNull
-    private String city;
+	@NotNull
+	private String city;
 
-    @NotNull
-    private String country;
+	@NotNull
+	private String country;
 
-    @ManyToOne
-    private Customer customer;
+	@ManyToOne
+	private Customer customer;
 }

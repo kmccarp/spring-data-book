@@ -36,7 +36,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.FileCopyUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/META-INF/spring/hadoop-context.xml" })
+@ContextConfiguration(locations = {"classpath:/META-INF/spring/hadoop-context.xml"})
 public class FsShellWritingMessageHandlerTests {
 
 	static final String DEFAULT_ENCODING = "UTF-8";
@@ -61,7 +61,7 @@ public class FsShellWritingMessageHandlerTests {
 			sourceFile = temp.newFile("sourceFile.txt");
 			Log.info("Generated source file = " + sourceFile);
 			FileCopyUtils.copy(SAMPLE_CONTENT.getBytes(DEFAULT_ENCODING),
-					new FileOutputStream(sourceFile, false));
+		new FileOutputStream(sourceFile, false));
 		}
 	};
 
@@ -69,7 +69,7 @@ public class FsShellWritingMessageHandlerTests {
 	public void init() {
 		// TODO need to create a way to get a tmp directory in HDFS
 		handler = new FsShellWritingMessageHandler(outputDirectory,
-				configuration);
+	configuration);
 		fsShell = new FsShell(configuration);
 		fsShell.rmr(outputDirectory);
 	}
@@ -79,7 +79,7 @@ public class FsShellWritingMessageHandlerTests {
 		handler.handleMessage(new GenericMessage<Integer>(99));
 
 		Collection<FileStatus> fileStatusCollection = fsShell
-				.ls(outputDirectory);
+	.ls(outputDirectory);
 		assertTrue(fileStatusCollection.isEmpty());
 	}
 
@@ -117,7 +117,7 @@ public class FsShellWritingMessageHandlerTests {
 	}
 
 	void assertFileContentIsMatching(Message<?> result) throws IOException,
-			UnsupportedEncodingException {
+UnsupportedEncodingException {
 		assertThat(result, is(notNullValue()));
 
 		assertThat(result.getPayload(), is(instanceOf(Path.class)));

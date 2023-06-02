@@ -8,7 +8,7 @@ import com.oreilly.springdata.batch.domain.Product;
 public class ProductProcessor implements ItemProcessor<Product, Product> {
 
 	@Override
-	public Product process(Product product) throws Exception {		
+	public Product process(Product product) throws Exception {
 		if (product.getId().startsWith("PR1")) {
 			return null;
 		} else {

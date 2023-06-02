@@ -71,12 +71,11 @@ public class SyslogTransformer {
 			map.put(HOST, matcher.group(3));
 			map.put(TAG, matcher.group(4));
 			map.put(MESSAGE, matcher.group(5));
-		}
-		else {
+		}else {
 			map.put(UNDECODED, payload);
 		}
 		return MessageBuilder.withPayload(map)
-				.copyHeaders(message.getHeaders())
-				.build();
+	.copyHeaders(message.getHeaders())
+	.build();
 	}
 }

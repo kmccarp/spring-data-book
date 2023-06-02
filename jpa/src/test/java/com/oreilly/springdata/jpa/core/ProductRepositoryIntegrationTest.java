@@ -60,7 +60,7 @@ public class ProductRepositoryIntegrationTest extends AbstractIntegrationTest {
 		Page<Product> page = repository.findByDescriptionContaining("Apple", pageable);
 
 		assertThat(page.getContent(), hasSize(1));
-		assertThat(page, Matchers.<Product> hasItems(named("iPad")));
+		assertThat(page, Matchers.<Product>hasItems(named("iPad")));
 		assertThat(page.getTotalElements(), is(2L));
 		assertThat(page.isFirstPage(), is(true));
 		assertThat(page.isLastPage(), is(false));
@@ -73,6 +73,6 @@ public class ProductRepositoryIntegrationTest extends AbstractIntegrationTest {
 
 		List<Product> products = repository.findByAttributeAndValue("connector", "plug");
 
-		assertThat(products, Matchers.<Product> hasItems(named("Dock")));
+		assertThat(products, Matchers.<Product>hasItems(named("Dock")));
 	}
 }

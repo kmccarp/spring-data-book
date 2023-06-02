@@ -26,9 +26,9 @@ public class PigApp {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/pig-context.xml", PigApp.class);
+	"/META-INF/spring/pig-context.xml", PigApp.class);
 		log.info("Pig Application Running");
-		context.registerShutdownHook();	
-    
+		context.registerShutdownHook();
+
 	}
 }

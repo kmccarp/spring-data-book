@@ -7,6 +7,6 @@ import org.springframework.integration.Message;
 public interface HdfsWriter {
 
 	void write(Message<?> message) throws IOException;
-	
+
 	void close();
 }

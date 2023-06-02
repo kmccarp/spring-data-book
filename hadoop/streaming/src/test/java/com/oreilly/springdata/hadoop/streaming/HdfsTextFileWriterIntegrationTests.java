@@ -10,17 +10,17 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/META-INF/spring/hadoop-context.xml" })
+@ContextConfiguration(locations = {"classpath:/META-INF/spring/hadoop-context.xml"})
 public class HdfsTextFileWriterIntegrationTests {
 
 	@Autowired
 	private FileSystem hadoopFs;
-	
+
 	@Test
 	public void test() throws Exception {
 		HdfsTextFileWriter fileWriter = new HdfsTextFileWriter(hadoopFs);
 		Message<?> message = MessageBuilder.withPayload("Hello World!").build();
-		fileWriter.write(message);		
+		fileWriter.write(message);
 	}
 
 }

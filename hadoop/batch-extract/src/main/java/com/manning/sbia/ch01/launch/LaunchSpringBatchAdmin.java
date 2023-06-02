@@ -29,10 +29,10 @@ public class LaunchSpringBatchAdmin {
 		wac.setWar("./src/main/webapp");
 		server.setHandler(wac);
 		server.setStopAtShutdown(true);
-		
+
 		server.start();
-        
-        System.out.println("**** Spring Batch Admin launched");
+
+		System.out.println("**** Spring Batch Admin launched");
 
 	}
 

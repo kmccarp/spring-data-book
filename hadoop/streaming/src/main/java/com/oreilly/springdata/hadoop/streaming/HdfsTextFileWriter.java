@@ -17,12 +17,12 @@ public class HdfsTextFileWriter extends AbstractHdfsWriter implements HdfsWriter
 	private FSDataOutputStream fsDataOutputStream;
 
 	private volatile String charset = "UTF-8";
-	
+
 	public HdfsTextFileWriter(FileSystem fileSystem) {
 		Assert.notNull(fileSystem, "Hadoop FileSystem must not be null.");
 		this.fileSystem = fileSystem;
 	}
-	
+
 
 	@Override
 	public void write(Message<?> message) throws IOException {
@@ -30,44 +30,42 @@ public class HdfsTextFileWriter extends AbstractHdfsWriter implements HdfsWriter
 		prepareOutputStream();
 		copy(getPayloadAsBytes(message), this.fsDataOutputStream);
 	}
-	
+
 
 	private void prepareOutputStream() throws IOException {
 		boolean found = false;
 		Path name = null;
-		
+
 		//TODO improve algorithm
 		while (!found) {
 			name = new Path(getFileName());
 			// If it doesn't exist, create it.  If it exists, return false
-			if (getFileSystem().createNewFile(name)) {	
+			if (getFileSystem().createNewFile(name)) {
 				found = true;
 				this.resetBytesWritten();
 				this.fsDataOutputStream = this.getFileSystem().append(name);
-			}
-			else {
+			}else {
 				if (this.getBytesWritten() >= getRolloverThresholdInBytes()) {
 					close();
 					incrementCounter();
-				}
-				else {
+				}else {
 					found = true;
 				}
 			}
 		}
 	}
-	
+
 	public FileSystem getFileSystem() {
 		return this.fileSystem;
 	}
-	
+
 	/**
 	 * Simple not optimized copy
 	 */
 	public void copy(byte[] in, FSDataOutputStream out) throws IOException {
 		Assert.notNull(in, "No input byte array specified");
 		Assert.notNull(out, "No OutputStream specified");
-		out.write(in);	
+		out.write(in);
 		incrementBytesWritten(in.length);
 	}
 
@@ -82,19 +80,17 @@ public class HdfsTextFileWriter extends AbstractHdfsWriter implements HdfsWriter
 		Object payload = message.getPayload();
 		if (payload instanceof byte[]) {
 			bytes = (byte[]) payload;
-		}
-		else if (payload instanceof String) {
+		}else if (payload instanceof String) {
 			try {
 				bytes = ((String) payload).getBytes(this.charset);
 			}
 			catch (UnsupportedEncodingException e) {
 				throw new MessageHandlingException(message, e);
 			}
-		}
-		else {
+		}else {
 			throw new MessageHandlingException(message,
-					"HdfsTextFileWriter expects " +
-					"either a byte array or String payload, but received: " + payload.getClass());
+		"HdfsTextFileWriter expects " +
+	"either a byte array or String payload, but received: " + payload.getClass());
 		}
 		return bytes;
 	}

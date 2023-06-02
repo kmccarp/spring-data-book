@@ -48,7 +48,7 @@ class MongoDbCustomerRepository implements CustomerRepository {
 		this.operations = operations;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see com.oreilly.springdata.mongodb.core.CustomerRepository#findOne(java.lang.Long)
 	 */
@@ -59,7 +59,7 @@ class MongoDbCustomerRepository implements CustomerRepository {
 		return operations.findOne(query, Customer.class);
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see com.oreilly.springdata.mongodb.core.CustomerRepository#save(com.oreilly.springdata.mongodb.core.Customer)
 	 */
@@ -70,7 +70,7 @@ class MongoDbCustomerRepository implements CustomerRepository {
 		return customer;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see com.oreilly.springdata.mongodb.core.CustomerRepository#findByEmailAddress(com.oreilly.springdata.mongodb.core.EmailAddress)
 	 */

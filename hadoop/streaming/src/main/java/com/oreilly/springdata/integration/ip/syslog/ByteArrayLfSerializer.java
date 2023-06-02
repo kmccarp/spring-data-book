@@ -45,11 +45,12 @@ public class ByteArrayLfSerializer extends AbstractByteArraySerializer {
 			buffer[n++] = (byte) bite;
 			if (n >= this.maxMessageSize) {
 				throw new IOException("LF not found before max message length: "
-						+ this.maxMessageSize);
+			+ this.maxMessageSize);
 			}
-		};
-		byte[] assembledData = new byte[n-1];
-		System.arraycopy(buffer, 0, assembledData, 0, n-1);
+		}
+		;
+		byte[] assembledData = new byte[n - 1];
+		System.arraycopy(buffer, 0, assembledData, 0, n - 1);
 		return assembledData;
 	}
 

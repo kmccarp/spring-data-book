@@ -49,7 +49,7 @@ public class QuerydslProductRepositoryIntegrationTest extends AbstractIntegratio
 		Predicate tablets = product.description.contains("tablet");
 
 		Iterable<Product> result = repository.findAll(tablets);
-		assertThat(result, is(Matchers.<Product> iterableWithSize(1)));
+		assertThat(result, is(Matchers.<Product>iterableWithSize(1)));
 		assertThat(result, hasItem(iPad));
 	}
 }

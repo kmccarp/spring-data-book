@@ -27,19 +27,19 @@ public class PigAppWithRepository {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/pig-context-password-repository.xml", PigAppWithRepository.class);
+	"/META-INF/spring/pig-context-password-repository.xml", PigAppWithRepository.class);
 		log.info("Pig Application Running");
-		context.registerShutdownHook();	
+		context.registerShutdownHook();
 
-		String outputDir = "/data/password-repo/output";		
+		String outputDir = "/data/password-repo/output";
 		FsShell fsShell = context.getBean(FsShell.class);
 		if (fsShell.test(outputDir)) {
 			fsShell.rmr(outputDir);
 		}
-		
+
 		PasswordRepository repo = context.getBean(PigPasswordRepository.class);
 		repo.processPasswordFile("/data/passwd/input");
-		
+
 		/*
 		Collection<String> files = new ArrayList<String>();
 		files.add("/data/passwd/input");
@@ -48,6 +48,5 @@ public class PigAppWithRepository {
 		*/
 
 
-	    
-	}
+			}
 }

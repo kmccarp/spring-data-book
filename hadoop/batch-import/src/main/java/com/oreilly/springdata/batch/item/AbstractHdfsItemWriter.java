@@ -16,20 +16,20 @@ import com.oreilly.springdata.hadoop.streaming.HdfsTextFileWriterFactory;
 public abstract class AbstractHdfsItemWriter<T> implements ItemWriter<T> {
 
 	private final AtomicLong counter = new AtomicLong(0L);
-	
+
 	private final AtomicLong bytesWritten = new AtomicLong(0L);
-	
+
 	private volatile boolean initialized;
-	
+
 	private String baseFilename = HdfsTextFileWriterFactory.DEFAULT_BASE_FILENAME;
 	private String basePath = HdfsTextFileWriterFactory.DEFAULT_BASE_PATH;
 	private String fileSuffix = HdfsTextFileWriterFactory.DEFAULT_FILE_SUFFIX;
 	private long rolloverThresholdInBytes = HdfsTextFileWriterFactory.DEFAULT_ROLLOVER_THRESHOLD_IN_BYTES;
-	
+
 	public abstract void write(List<? extends T> items) throws Exception;
-	
+
 	public abstract FileSystem getFileSystem();
-	
+
 	protected void initializeCounterIfNecessary() {
 		if (!initialized) {
 			FsShell fsShell = new FsShell(getFileSystem().getConf(), getFileSystem());
@@ -47,9 +47,9 @@ public abstract class AbstractHdfsItemWriter<T> implements ItemWriter<T> {
 				}
 			}
 			if (foundFile) {
-				this.setCounter(maxCounter+1);				
+				this.setCounter(maxCounter + 1);
 			}
-			
+
 			initialized = true;
 		}
 	}
@@ -60,10 +60,10 @@ public abstract class AbstractHdfsItemWriter<T> implements ItemWriter<T> {
 		Matcher matcher = pattern.matcher(shortName);
 		if (matcher.find()) {
 			return Integer.parseInt(matcher.group());
-		} 
-		return -1;			
+		}
+		return -1;
 	}
-	
+
 	public long getRolloverThresholdInBytes() {
 		return rolloverThresholdInBytes;
 	}
@@ -81,7 +81,7 @@ public abstract class AbstractHdfsItemWriter<T> implements ItemWriter<T> {
 		this.fileSuffix = fileSuffix;
 	}
 
-	
+
 	public String getBaseFilename() {
 		return baseFilename;
 	}
@@ -101,27 +101,27 @@ public abstract class AbstractHdfsItemWriter<T> implements ItemWriter<T> {
 	public long getCounter() {
 		return counter.get();
 	}
-	
+
 	public void setCounter(long value) {
 		counter.set(value);
 	}
-	
+
 	public void incrementCounter() {
 		counter.incrementAndGet();
 	}
-	
+
 	public void incrementBytesWritten(long bytesWritten) {
 		this.bytesWritten.addAndGet(bytesWritten);
 	}
-	
+
 	public void resetBytesWritten() {
 		this.bytesWritten.set(0L);
 	}
-	
+
 	public long getBytesWritten() {
 		return bytesWritten.get();
 	}
-	
+
 	public String getFileName() {
 		return basePath + baseFilename + "-" + getCounter() + "." + fileSuffix;
 	}

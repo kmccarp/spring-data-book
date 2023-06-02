@@ -32,7 +32,7 @@ class JpaCustomerRepository implements CustomerRepository {
 	@PersistenceContext
 	private EntityManager em;
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see com.oreilly.springdata.jpa.core.CustomerRepository#findOne(java.lang.Long)
 	 */
@@ -54,7 +54,7 @@ class JpaCustomerRepository implements CustomerRepository {
 		}
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see com.oreilly.springdata.jpa.core.CustomerRepository#findByEmailAddress(com.oreilly.springdata.jpa.core.EmailAddress)
 	 */
@@ -62,7 +62,7 @@ class JpaCustomerRepository implements CustomerRepository {
 	public Customer findByEmailAddress(EmailAddress emailAddress) {
 
 		TypedQuery<Customer> query = em.createQuery("select c from Customer c where c.emailAddress = :email",
-				Customer.class);
+	Customer.class);
 		query.setParameter("email", emailAddress);
 
 		return query.getSingleResult();

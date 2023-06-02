@@ -29,9 +29,9 @@ public class LaunchExportProductsJob {
 		Job job = ctx.getBean(Job.class);
 
 		jobLauncher.run(job,
-				new JobParametersBuilder()
-						.addString("hdfsSourceDirectory", "/data/analysis/results/part-*")
-						.addDate("date", new Date()).toJobParameters());
+	new JobParametersBuilder()
+.addString("hdfsSourceDirectory", "/data/analysis/results/part-*")
+.addDate("date", new Date()).toJobParameters());
 	}
 
 }

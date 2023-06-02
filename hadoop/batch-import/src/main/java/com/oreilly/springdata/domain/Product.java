@@ -24,13 +24,13 @@ public class Product implements Serializable {
 		super();
 		this.id = id;
 	}
-	
+
 	public Product() {
 	}
 
-	private String id;	
-	private String name;	
-	private String description;	
+	private String id;
+	private String name;
+	private String description;
 	private BigDecimal price;
 
 	public String getId() {
@@ -66,10 +66,10 @@ public class Product implements Serializable {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-	
+
 	@Override
 	public String toString() {
-		return id + "," + name + "," + description + "," + price; 		
+		return id + "," + name + "," + description + "," + price;
 	}
-	
+
 }

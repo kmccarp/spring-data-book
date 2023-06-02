@@ -30,14 +30,14 @@ public class HiveAppWithApacheLogs {
 
 	public static void main(String[] args) throws Exception {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/hive-apache-log-context.xml", HiveAppWithApacheLogs.class);
+	"/META-INF/spring/hive-apache-log-context.xml", HiveAppWithApacheLogs.class);
 		log.info("Hive Application Running");
-		context.registerShutdownHook();	
-		
-		
-		HiveRunner runner = context.getBean(HiveRunner.class);		
+		context.registerShutdownHook();
+
+
+		HiveRunner runner = context.getBean(HiveRunner.class);
 		runner.call();
-		
+
 		/*
 		JdbcPasswordRepository repo = context.getBean(JdbcPasswordRepository.class);		
 		repo.processPasswordFile("password-analysis.hql");	
@@ -50,8 +50,7 @@ public class HiveAppWithApacheLogs {
 		/*
 		System.out.println("hit enter to run again");
 		Scanner scanIn = new Scanner(System.in);
-	    scanIn.nextLine();
-	    */
-	    
-	}
+			anIn.nextLine();
+		 */
+			}
 }

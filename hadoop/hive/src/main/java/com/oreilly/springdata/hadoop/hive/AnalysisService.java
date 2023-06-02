@@ -17,7 +17,7 @@ public class AnalysisService implements ResourceLoaderAware {
 	private String hiveContribJar;
 	private String localInPath;
 	private ResourceLoader resourceLoader;
-	
+
 	public void setLocalInPath(String localInPath) {
 		this.localInPath = localInPath;
 	}
@@ -26,11 +26,11 @@ public class AnalysisService implements ResourceLoaderAware {
 		Assert.notNull(hiveOperations);
 		this.hiveOperations = hiveOperations;
 	}
-	
+
 	public void setScriptResource(String scriptResource) {
 		this.scriptResource = scriptResource;
 	}
-	
+
 	public void setHiveContribJar(String hiveContribJar) {
 		this.hiveContribJar = hiveContribJar;
 	}
@@ -42,7 +42,7 @@ public class AnalysisService implements ResourceLoaderAware {
 		parameters.put("localInPath", localInPath);
 		//hiveOperations.query(scriptResource, parameters);
 		Resource res = resourceLoader.getResource(scriptResource);
-		hiveOperations.executeScript(new HiveScript(res,parameters)  );
+		hiveOperations.executeScript(new HiveScript(res, parameters));
 	}
 
 	@Override

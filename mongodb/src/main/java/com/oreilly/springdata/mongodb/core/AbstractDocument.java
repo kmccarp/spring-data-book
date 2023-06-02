@@ -38,7 +38,7 @@ public class AbstractDocument {
 		return id;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -58,7 +58,7 @@ public class AbstractDocument {
 		return this.id.equals(that.getId());
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */

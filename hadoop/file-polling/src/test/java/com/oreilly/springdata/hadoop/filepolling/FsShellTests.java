@@ -17,7 +17,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/META-INF/spring/hadoop-context.xml" })
+@ContextConfiguration(locations = {"classpath:/META-INF/spring/hadoop-context.xml"})
 public class FsShellTests {
 
 	private static final Log log = LogFactory.getLog(FsShellTests.class);

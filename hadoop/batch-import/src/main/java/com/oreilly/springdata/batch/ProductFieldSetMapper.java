@@ -10,13 +10,12 @@ import org.springframework.validation.BindException;
 import com.oreilly.springdata.domain.Product;
 
 
-
 /**
  * @author acogoluegnes
  *
  */
 public class ProductFieldSetMapper implements FieldSetMapper<Product> {
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see org.springframework.batch.item.file.mapping.FieldSetMapper#mapFieldSet(org.springframework.batch.item.file.transform.FieldSet)
@@ -29,5 +28,5 @@ public class ProductFieldSetMapper implements FieldSetMapper<Product> {
 		product.setPrice(fieldSet.readBigDecimal("PRICE"));
 		return product;
 	}
-	
+
 }

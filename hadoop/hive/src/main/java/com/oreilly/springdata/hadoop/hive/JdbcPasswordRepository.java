@@ -17,7 +17,7 @@ public class JdbcPasswordRepository implements PasswordRepository, ResourceLoade
 	private @Autowired JdbcOperations jdbcOperations;
 
 	private @Value("${hive.table}")	String tableName;
-	
+
 	private ResourceLoader resourceLoader;
 
 	/*

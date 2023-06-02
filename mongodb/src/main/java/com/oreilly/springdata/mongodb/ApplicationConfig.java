@@ -45,7 +45,7 @@ class ApplicationConfig extends AbstractMongoConfiguration {
 	@Autowired
 	private List<Converter<?, ?>> converters;
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see org.springframework.data.mongodb.config.AbstractMongoConfiguration#getDatabaseName()
 	 */
@@ -54,7 +54,7 @@ class ApplicationConfig extends AbstractMongoConfiguration {
 		return "e-store";
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see org.springframework.data.mongodb.config.AbstractMongoConfiguration#mongo()
 	 */
@@ -67,7 +67,7 @@ class ApplicationConfig extends AbstractMongoConfiguration {
 		return mongo;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see org.springframework.data.mongodb.config.AbstractMongoConfiguration#customConversions()
 	 */

@@ -19,14 +19,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("/launch-context.xml")
 public class WordCountWorkflowTests {
 
-    @Autowired
-    private ApplicationContext ctx;
+	@Autowired
+	private ApplicationContext ctx;
 
 	@Test
 	public void testWorkflowNS() throws Exception {
 		startJobs(ctx);
 	}
-	
+
 	public void startJobs(ApplicationContext ctx) {
 		JobLauncher launcher = ctx.getBean(JobLauncher.class);
 		Map<String, Job> jobs = ctx.getBeansOfType(Job.class);
@@ -34,7 +34,7 @@ public class WordCountWorkflowTests {
 		for (Map.Entry<String, Job> entry : jobs.entrySet()) {
 			System.out.println("Executing job " + entry.getKey());
 			try {
-				if (launcher.run(entry.getValue(), new JobParameters()).getStatus().equals(BatchStatus.FAILED)){
+				if (launcher.run(entry.getValue(), new JobParameters()).getStatus().equals(BatchStatus.FAILED)) {
 					throw new BeanInitializationException("Failed executing job " + entry.getKey());
 				}
 			} catch (Exception ex) {

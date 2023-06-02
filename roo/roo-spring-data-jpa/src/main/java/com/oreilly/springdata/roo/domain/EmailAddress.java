@@ -10,6 +10,6 @@ import org.springframework.roo.addon.tostring.RooToString;
 @Embeddable
 public class EmailAddress {
 
-    @NotNull
-    private String address;
+	@NotNull
+	private String address;
 }

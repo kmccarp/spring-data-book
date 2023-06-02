@@ -9,8 +9,7 @@ import org.springframework.batch.item.file.transform.FieldSet;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
-public class FieldSetSqlParameterSourceProvider implements
-		ItemSqlParameterSourceProvider<FieldSet> {
+public class FieldSetSqlParameterSourceProvider implementsItemSqlParameterSourceProvider<FieldSet> {
 
 	@Override
 	public SqlParameterSource createSqlParameterSource(FieldSet item) {
@@ -21,7 +20,7 @@ public class FieldSetSqlParameterSourceProvider implements
 		for (String key : keys) {
 			source.addValue(key, props.get(key));
 		}
-		
+
 		return source;
 	}
 

@@ -61,7 +61,7 @@ public class EmailAddress {
 		return candidate == null ? false : PATTERN.matcher(candidate).matches();
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

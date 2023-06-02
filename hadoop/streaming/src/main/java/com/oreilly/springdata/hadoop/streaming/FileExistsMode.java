@@ -38,7 +38,7 @@ public enum FileExistsMode {
 	public static FileExistsMode getForString(String fileExistsModeAsString) {
 
 		Assert.hasText(fileExistsModeAsString,
-				"'fileExistsModeAsString' must neither be null nor empty.");
+	"'fileExistsModeAsString' must neither be null nor empty.");
 
 		final FileExistsMode[] fileExistsModeValues = FileExistsMode.values();
 
@@ -49,9 +49,9 @@ public enum FileExistsMode {
 		}
 
 		throw new IllegalArgumentException("Invalid fileExistsMode '"
-				+ fileExistsModeAsString
-				+ "'. The (case-insensitive) supported values are: "
-				+ StringUtils.arrayToCommaDelimitedString(fileExistsModeValues));
+	+ fileExistsModeAsString
+	+ "'. The (case-insensitive) supported values are: "
+	+ StringUtils.arrayToCommaDelimitedString(fileExistsModeValues));
 
 	}
 

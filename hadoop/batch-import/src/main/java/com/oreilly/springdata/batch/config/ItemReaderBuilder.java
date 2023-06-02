@@ -24,13 +24,13 @@ public class ItemReaderBuilder {
 	}
 
 	public MultiResourceItemReader multiResourceItemReader(
-			ItemReader flatFileReader, String string) {
+ItemReader flatFileReader, String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public MultiResourceItemReader multiResourceItemReader(String string,
-			FlatFileItemReader flatFileItemReader) {
+FlatFileItemReader flatFileItemReader) {
 		// TODO Auto-generated method stub
 		return null;
 	}

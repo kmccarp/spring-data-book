@@ -10,9 +10,9 @@ public class HdfsTextFileWriterFactory implements HdfsWriterFactory {
 	public static final String DEFAULT_BASE_FILENAME = "data";
 	public static final String DEFAULT_BASE_PATH = "/data/";
 	public static final String DEFAULT_FILE_SUFFIX = "log";
-	public static long DEFAULT_ROLLOVER_THRESHOLD_IN_BYTES = 10*1024*1024; //10MB
+	public static long DEFAULT_ROLLOVER_THRESHOLD_IN_BYTES = 10 * 1024 * 1024; //10MB
 	
-	private long rolloverThresholdInBytes = DEFAULT_ROLLOVER_THRESHOLD_IN_BYTES; 
+	private long rolloverThresholdInBytes = DEFAULT_ROLLOVER_THRESHOLD_IN_BYTES;
 
 	private String baseFilename = DEFAULT_BASE_FILENAME;
 	private String basePath = DEFAULT_BASE_PATH;
@@ -46,7 +46,7 @@ public class HdfsTextFileWriterFactory implements HdfsWriterFactory {
 	public void setBasePath(String basePath) {
 		this.basePath = basePath;
 	}
-	
+
 	public long getRolloverThresholdInBytes() {
 		return rolloverThresholdInBytes;
 	}
@@ -54,7 +54,7 @@ public class HdfsTextFileWriterFactory implements HdfsWriterFactory {
 	public void setRolloverThresholdInBytes(long rolloverThresholdInBytes) {
 		this.rolloverThresholdInBytes = rolloverThresholdInBytes;
 	}
-	
+
 
 	@Override
 	public HdfsWriter createWriter() {

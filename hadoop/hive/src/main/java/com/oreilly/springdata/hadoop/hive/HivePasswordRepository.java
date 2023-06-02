@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public class HivePasswordRepository implements PasswordRepository {
 
 	private static final Log logger = LogFactory
-			.getLog(HivePasswordRepository.class);
+.getLog(HivePasswordRepository.class);
 
 	private HiveClientFactory hiveClientFactory;
 
@@ -30,7 +30,7 @@ public class HivePasswordRepository implements PasswordRepository {
 	public HivePasswordRepository(HiveClientFactory hiveClientFactory) {
 		this.hiveClientFactory = hiveClientFactory;
 	}
-	
+
 	@Override
 	public Long count() {
 		HiveClient hiveClient = createHiveClient();
@@ -47,11 +47,11 @@ public class HivePasswordRepository implements PasswordRepository {
 				hiveClient.shutdown();
 			} catch (org.apache.thrift.TException tex) {
 				logger.debug(
-						"Unexpected exception on shutting down HiveClient", tex);
+			"Unexpected exception on shutting down HiveClient", tex);
 			}
 		}
 	}
-	
+
 	@Override
 	public void processPasswordFile(String inputFile) {
 		//

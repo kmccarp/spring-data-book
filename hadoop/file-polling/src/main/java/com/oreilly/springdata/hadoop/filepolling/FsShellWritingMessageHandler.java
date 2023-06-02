@@ -24,13 +24,12 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.integration.util.LockRegistry;
 import org.springframework.util.Assert;
 
-public class FsShellWritingMessageHandler extends
-		AbstractReplyProducingMessageHandler {
+public class FsShellWritingMessageHandler extendsAbstractReplyProducingMessageHandler {
 
 	private volatile FileExistsMode fileExistsMode = FileExistsMode.REPLACE;
 
 	private static final Log log = LogFactory
-			.getLog(FsShellWritingMessageHandler.class);
+.getLog(FsShellWritingMessageHandler.class);
 
 	private volatile FileNameGenerator fileNameGenerator = new DefaultFileNameGenerator();
 
@@ -47,9 +46,9 @@ public class FsShellWritingMessageHandler extends
 	private Configuration configuration;
 
 	private FsShell fsShell;
-	
+
 	private volatile boolean generateDestinationDirectory = true;
-	
+
 	private volatile String destinationDirectoryFormat = "%1$tY/%1$tm/%1$td/%1$tH/%1$tM/%1$tS";
 
 	/**
@@ -61,11 +60,11 @@ public class FsShellWritingMessageHandler extends
 	 * @see #FsShellWritingMessageHandler(Expression)
 	 */
 	public FsShellWritingMessageHandler(String destinationDirectory,
-			Configuration configuration) {
+Configuration configuration) {
 		Assert.notNull(destinationDirectory,
-				"Destination directory must not be null.");		
+	"Destination directory must not be null.");
 		this.destinationDirectoryExpression = new LiteralExpression(
-				destinationDirectory);
+	destinationDirectory);
 		createFsShell(configuration);
 	}
 
@@ -77,9 +76,9 @@ public class FsShellWritingMessageHandler extends
 	 * @see #FileWritingMessageHandler(String)
 	 */
 	public FsShellWritingMessageHandler(
-			Expression destinationDirectoryExpression) {
+Expression destinationDirectoryExpression) {
 		Assert.notNull(destinationDirectoryExpression,
-				"Destination directory expression must not be null.");
+	"Destination directory expression must not be null.");
 		this.destinationDirectoryExpression = destinationDirectoryExpression;
 		createFsShell(configuration);
 	}
@@ -139,7 +138,7 @@ public class FsShellWritingMessageHandler extends
 	public void setExpectReply(boolean expectReply) {
 		this.expectReply = expectReply;
 	}
-	
+
 	public void setGenerateDestinationDirectory(boolean generateDestinationDirectory) {
 		this.generateDestinationDirectory = generateDestinationDirectory;
 	}
@@ -161,20 +160,20 @@ public class FsShellWritingMessageHandler extends
 
 		if (beanFactory != null) {
 			this.evaluationContext.setBeanResolver(new BeanFactoryResolver(
-					beanFactory));
+		beanFactory));
 		}
 
 		if (this.destinationDirectoryExpression instanceof LiteralExpression) {
 			final Path directory = new Path(
-					this.destinationDirectoryExpression.getValue(
-							this.evaluationContext, null, String.class));
+		this.destinationDirectoryExpression.getValue(
+	this.evaluationContext, null, String.class));
 			validateDestinationDirectory(directory, this.autoCreateDirectory);
 		}
 
 	}
 
 	private void validateDestinationDirectory(Path destinationDirectory,
-			boolean autoCreateDirectory) {
+boolean autoCreateDirectory) {
 		// TODO
 	}
 
@@ -184,9 +183,9 @@ public class FsShellWritingMessageHandler extends
 		Object payload = requestMessage.getPayload();
 		Assert.notNull(payload, "message payload must not be null");
 		String generatedFileName = this.fileNameGenerator
-				.generateFileName(requestMessage);
+	.generateFileName(requestMessage);
 		File originalFileFromHeader = this
-				.retrieveOriginalFileFromHeader(requestMessage);
+	.retrieveOriginalFileFromHeader(requestMessage);
 
 		final Path destinationDirectoryToUse = evaluateDestinationDirectoryExpression(requestMessage);
 		Path resultFile = new Path(destinationDirectoryToUse, generatedFileName);
@@ -195,27 +194,27 @@ public class FsShellWritingMessageHandler extends
 
 		if (FileExistsMode.FAIL.equals(this.fileExistsMode) && resultFileExists) {
 			throw new MessageHandlingException(requestMessage,
-					"The destination file already exists at '"
-							+ resultFile.toString() + "'.");
+		"The destination file already exists at '"
+	+ resultFile.toString() + "'.");
 		}
 
 		final boolean ignore = FileExistsMode.IGNORE
-				.equals(this.fileExistsMode) && resultFileExists;
+	.equals(this.fileExistsMode) && resultFileExists;
 
 		if (!ignore) {
 
 			try {
 				if (payload instanceof File) {
 					resultFile = this.handleFileMessage((File) payload,
-							resultFile, resultFileExists);
+				resultFile, resultFileExists);
 				} else {
 					throw new IllegalArgumentException(
-							"unsupported Message payload type ["
-									+ payload.getClass().getName() + "]");
+				"unsupported Message payload type ["
+			+ payload.getClass().getName() + "]");
 				}
 			} catch (Exception e) {
 				throw new MessageHandlingException(requestMessage,
-						"failed to write Message payload to file", e);
+			"failed to write Message payload to file", e);
 			}
 		}
 
@@ -226,7 +225,7 @@ public class FsShellWritingMessageHandler extends
 		if (resultFile != null) {
 			if (originalFileFromHeader == null && payload instanceof File) {
 				return MessageBuilder.withPayload(resultFile).setHeader(
-						FileHeaders.ORIGINAL_FILE, payload);
+			FileHeaders.ORIGINAL_FILE, payload);
 			}
 		}
 		return resultFile;
@@ -249,16 +248,16 @@ public class FsShellWritingMessageHandler extends
 	}
 
 	private Path handleFileMessage(final File sourceFile, Path resultFile,
-			boolean resultFileExists) {
+boolean resultFileExists) {
 
 		if (FileExistsMode.REPLACE.equals(this.fileExistsMode)
-				&& resultFileExists) {
+	&& resultFileExists) {
 			fsShell.rm(resultFile.toString());
 		}
 		log.info("sourceFile = " + sourceFile.getAbsolutePath());
 		log.info("resultFile = " + resultFile.toString());
 		fsShell.copyFromLocal(sourceFile.getAbsolutePath(),
-				resultFile.toString());
+	resultFile.toString());
 		cleanUpAfterCopy(sourceFile);
 		return resultFile;
 	}
@@ -275,25 +274,25 @@ public class FsShellWritingMessageHandler extends
 		final Path destinationDirectory;
 
 		final Object destinationDirectoryToUse = this.destinationDirectoryExpression
-				.getValue(this.evaluationContext, message);
+	.getValue(this.evaluationContext, message);
 
 		if (destinationDirectoryToUse == null) {
 			throw new IllegalStateException(
-					String.format(
-							"The provided "
-									+ "destinationDirectoryExpression (%s) must not resolve to null.",
-							this.destinationDirectoryExpression
-									.getExpressionString()));
+		String.format(
+	"The provided "
++ "destinationDirectoryExpression (%s) must not resolve to null.",
+	this.destinationDirectoryExpression
+.getExpressionString()));
 		} else if (destinationDirectoryToUse instanceof String) {
 
 			String destinationDirectoryPath = (String) destinationDirectoryToUse;
 
 			Assert.hasText(
-					destinationDirectoryPath,
-					String.format(
-							"Unable to resolve destination directory name for the provided Expression '%s'.",
-							this.destinationDirectoryExpression
-									.getExpressionString()));
+		destinationDirectoryPath,
+		String.format(
+	"Unable to resolve destination directory name for the provided Expression '%s'.",
+	this.destinationDirectoryExpression
+.getExpressionString()));
 			if (this.generateDestinationDirectory) {
 				destinationDirectoryPath = destinationDirectoryPath + "/" + PathUtils.format(this.destinationDirectoryFormat);
 			}
@@ -302,13 +301,13 @@ public class FsShellWritingMessageHandler extends
 			destinationDirectory = (Path) destinationDirectoryToUse;
 		} else {
 			throw new IllegalStateException(String.format("The provided "
-					+ "destinationDirectoryExpression (%s) must be of type "
-					+ "java.io.File or be a String.",
-					this.destinationDirectoryExpression.getExpressionString()));
+		+ "destinationDirectoryExpression (%s) must be of type "
+		+ "java.io.File or be a String.",
+		this.destinationDirectoryExpression.getExpressionString()));
 		}
 
 		validateDestinationDirectory(destinationDirectory,
-				this.autoCreateDirectory);
+	this.autoCreateDirectory);
 		return destinationDirectory;
 	}
 
